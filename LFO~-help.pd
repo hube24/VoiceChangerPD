@@ -1,0 +1,10 @@
+#N canvas 1218 368 421 412 10;
+#X obj 82 318 output~;
+#X obj 172 318 wsprobe~;
+#X obj 82 121 LFO~;
+#X text 39 47 LFO~ - generates an audio sine/square wave between 0-50
+Hz. User can adjust a speed and depth \, choose between sine and square
+wave and reset everything to starting values;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 2 0 1 0;

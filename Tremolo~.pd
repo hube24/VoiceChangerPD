@@ -1,0 +1,64 @@
+#N canvas 288 371 898 521 10;
+#X obj 100 101 cnv 15 200 250 empty empty Tremolo 60 12 1 15 -66577
+-257985 0;
+#X obj 121 318 tgl 15 0 \$0activate-tremolo activate-tremolo On/Off
+-10 22 0 10 -260097 -1 -262144 0 1;
+#X obj 120 134 vsl 30 160 0 50 0 0 empty tremspeed empty 0 -9 0 10
+-257985 -1 -1 0 1;
+#X floatatom 162 206 5 0 0 0 - - -;
+#X obj 265 316 bng 15 250 50 0 empty freq-reset RESET -7 22 0 10 -4032
+-1 -262144;
+#X obj 208 133 vsl 30 160 0 1 0 0 empty tremdepth empty 0 -9 0 10 -257985
+-1 -1 15900 1;
+#X floatatom 250 206 5 0 0 0 - - -;
+#X text 128 279 0;
+#X text 217 134 1;
+#X obj 325 253 loadbang;
+#X text 118 205 Speed;
+#X text 207 205 depth;
+#X text 123 135 50;
+#X text 216 280 0;
+#X obj 563 332 *~;
+#X obj 525 73 inlet~;
+#X obj 524 388 outlet~;
+#X obj 577 294 *~ 0.5;
+#X obj 577 256 +~;
+#X obj 577 222 sig~;
+#X obj 524 169 spigot~;
+#X obj 712 53 osc~;
+#X obj 712 169 clip~ -1 1;
+#X obj 711 222 *~;
+#X obj 711 124 *~;
+#X obj 774 42 loadbang;
+#X obj 162 380 s \$0tremspd;
+#X obj 252 380 s \$0tremdepth;
+#X obj 712 6 r \$0tremspd;
+#X obj 577 189 r \$0tremdepth;
+#X msg 325 332 \; tremspeed 0 \; tremdepth 1;
+#X obj 563 130 r \$0activate-tremolo;
+#X msg 773 89 1;
+#X obj 726 195 r \$0tremdepth;
+#X connect 2 0 3 0;
+#X connect 3 0 26 0;
+#X connect 4 0 30 0;
+#X connect 5 0 6 0;
+#X connect 6 0 27 0;
+#X connect 9 0 30 0;
+#X connect 14 0 16 0;
+#X connect 15 0 20 0;
+#X connect 17 0 14 1;
+#X connect 18 0 17 0;
+#X connect 19 0 18 0;
+#X connect 20 0 16 0;
+#X connect 20 1 14 0;
+#X connect 21 0 24 0;
+#X connect 22 0 23 0;
+#X connect 23 0 18 1;
+#X connect 24 0 22 0;
+#X connect 25 0 32 0;
+#X connect 28 0 21 0;
+#X connect 29 0 19 0;
+#X connect 31 0 20 1;
+#X connect 32 0 24 1;
+#X connect 33 0 23 1;
+#X coords 0 -1 1 1 200 250 1 100 100;

@@ -1,0 +1,50 @@
+#N canvas 1076 218 804 532 10;
+#X obj 101 101 cnv 15 100 250 empty empty Frequency_Shift 7 12 1 12
+-66577 -257985 0;
+#X obj 122 319 tgl 15 0 activate_freqshift activate-freq On/Off -10
+22 0 10 -260097 -1 -262144 1 1;
+#X obj 123 136 vsl 30 160 -1000 1000 0 0 empty shifter-frequency empty
+0 -9 0 10 -257985 -1 -1 7950 1;
+#X floatatom 163 207 5 0 0 0 - - -;
+#X obj 227 293 loadbang;
+#X msg 227 333 \; shifter-frequency 0 \;;
+#X obj 573 247 hilbert~;
+#X obj 423 303 *~;
+#X obj 468 301 *~;
+#X obj 424 335 -~;
+#X obj 422 246 cos~;
+#X obj 468 246 cos~;
+#X obj 423 180 phasor~;
+#X obj 468 210 +~ -0.25;
+#X obj 422 139 sig~;
+#X obj 533 140 spigot~;
+#X text 124 134 1000;
+#X text 120 281 -1000;
+#X obj 171 318 bng 15 250 50 0 empty freq-reset empty 17 7 0 10 -4032
+-1 -1;
+#X obj 534 382 outlet~;
+#X obj 532 20 inlet~;
+#X obj 223 223 s \$0shift;
+#X obj 572 79 r activate_freqshift;
+#X obj 422 80 r \$0shift;
+#X connect 2 0 3 0;
+#X connect 3 0 21 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 1;
+#X connect 6 1 8 1;
+#X connect 7 0 9 0;
+#X connect 8 0 9 1;
+#X connect 9 0 19 0;
+#X connect 10 0 7 0;
+#X connect 11 0 8 0;
+#X connect 12 0 13 0;
+#X connect 12 0 10 0;
+#X connect 13 0 11 0;
+#X connect 14 0 12 0;
+#X connect 15 0 19 0;
+#X connect 15 1 6 0;
+#X connect 18 0 5 0;
+#X connect 20 0 15 0;
+#X connect 22 0 15 1;
+#X connect 23 0 14 0;
+#X coords 0 -1 1 1 100 250 1 100 100;

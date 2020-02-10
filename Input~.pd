@@ -1,0 +1,75 @@
+#N canvas 658 130 1148 754 10;
+#X obj 101 101 cnv 15 600 150 empty empty Controls 20 12 0 14 -99865
+-257985 0;
+#X obj 342 113 vu 15 120 empty empty -1 -8 0 10 -1 -4034 1 0;
+#X obj 116 150 cnv 15 200 60 empty empty Source 10 12 0 12 -233017
+-66577 0;
+#X obj 125 174 vradio 15 1 0 2 empty empty empty 0 -8 0 4 -162280 -1
+-1 0;
+#X obj 232 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -191407
+-1 -1;
+#X text 252 161 Open file;
+#X obj 126 273 openpanel;
+#X msg 127 348 open \$1;
+#X obj 127 398 readsf~;
+#X msg 75 373 start;
+#X obj 130 459 spigot~;
+#X obj 171 613 outlet~;
+#X obj 294 458 spigot~;
+#X obj 294 423 adc~;
+#X obj 333 406 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 333 348 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 262 349 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 262 301 route 0 1;
+#X obj 332 503 pvu~;
+#X obj 105 504 pvu~;
+#X obj 105 530 s \$0file;
+#X obj 332 528 s \$0mic;
+#X obj 364 50 r \$0file;
+#X obj 298 52 r \$0mic;
+#X obj 262 387 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 201 302 loadbang;
+#X obj 397 105 scope~ 294 138 256 3 500 -1 1 0 0 0 0 102 255 51 135
+135 135 0;
+#X msg 545 51 range -1 1;
+#X obj 199 475 +~;
+#X obj 197 516 s~ \$0scp;
+#X obj 436 34 r~ \$0scp;
+#X text 145 182 File/Mic;
+#X msg 535 24 bufsize 1000;
+#X connect 3 0 17 0;
+#X connect 4 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X connect 10 1 11 0;
+#X connect 10 1 19 0;
+#X connect 10 1 28 0;
+#X connect 12 0 28 1;
+#X connect 12 1 11 0;
+#X connect 12 1 18 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 1;
+#X connect 15 0 14 0;
+#X connect 16 0 24 0;
+#X connect 17 0 16 0;
+#X connect 17 0 15 0;
+#X connect 17 1 15 0;
+#X connect 17 1 16 0;
+#X connect 18 0 21 0;
+#X connect 19 0 20 0;
+#X connect 22 0 1 1;
+#X connect 23 0 1 0;
+#X connect 24 0 10 1;
+#X connect 25 0 24 0;
+#X connect 27 0 26 0;
+#X connect 28 0 29 0;
+#X connect 30 0 26 0;
+#X connect 32 0 26 0;
+#X coords 0 -1 1 1 600 150 1 100 100;

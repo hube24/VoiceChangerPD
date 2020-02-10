@@ -1,0 +1,44 @@
+#N canvas 331 98 958 988 10;
+#X obj 598 310 bp~;
+#X obj 101 101 cnv 15 200 250 empty empty Band-pass_filter 50 12 1
+15 -66577 -257985 0;
+#X obj 123 318 tgl 15 0 activate_bp activate_bp On/Off -10 22 0 10
+-260097 -1 -262144 0 1;
+#X floatatom 163 206 5 0 0 0 - - -;
+#X obj 266 316 bng 15 250 50 0 empty freq-reset RESET -7 22 0 10 -4032
+-1 -262144;
+#X obj 211 135 vsl 30 160 0 100 0 0 empty Qlvl empty 0 -9 0 10 -257985
+-1 -1 0 1;
+#X floatatom 253 206 5 0 0 0 - - -;
+#X obj 326 253 loadbang;
+#X obj 121 139 vsl 30 160 0 10000 0 0 empty centre-frequency empty
+0 -9 0 10 -257985 -1 -1 0 1;
+#X text 132 282 0;
+#X text 119 136 10000;
+#X obj 557 367 outlet~;
+#X obj 555 84 inlet~;
+#X obj 605 244 r cfreq;
+#X obj 613 271 r Q;
+#X obj 163 378 s cfreq;
+#X obj 253 380 s Q;
+#X text 215 134 100;
+#X text 224 279 0;
+#X msg 327 332 \; centre-frequency 0 \; Qlvl 0;
+#X text 220 205 Q;
+#X obj 556 151 spigot~;
+#X obj 595 117 r activate_bp;
+#X text 120 201 freq.;
+#X connect 0 0 11 0;
+#X connect 3 0 15 0;
+#X connect 4 0 19 0;
+#X connect 5 0 6 0;
+#X connect 6 0 16 0;
+#X connect 7 0 19 0;
+#X connect 8 0 3 0;
+#X connect 12 0 21 0;
+#X connect 13 0 0 1;
+#X connect 14 0 0 2;
+#X connect 21 0 11 0;
+#X connect 21 1 0 0;
+#X connect 22 0 21 1;
+#X coords 0 -1 1 1 200 250 1 100 100;

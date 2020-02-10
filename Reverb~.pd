@@ -1,0 +1,54 @@
+#N canvas 846 160 886 696 10;
+#X obj 100 100 cnv 15 200 250 empty empty Reverb 70 12 1 15 -66577
+-257985 0;
+#X obj 121 317 tgl 15 0 activate_reverb activate-reverb On/Off -10
+22 0 10 -260097 -1 -262144 0 1;
+#X obj 119 135 vsl 30 160 0 1000 0 0 empty delay empty 0 -9 0 10 -257985
+-1 -1 0 1;
+#X floatatom 162 205 5 0 0 0 - - -;
+#X obj 265 315 bng 15 250 50 0 empty freq-reset RESET -7 22 0 10 -4032
+-1 -262144;
+#X obj 208 136 vsl 30 160 -1 1 0 0 empty feedback empty 0 -9 0 10 -257985
+-1 -1 7950 1;
+#X floatatom 250 205 5 0 0 0 - - -;
+#X text 119 134 1000;
+#X text 128 278 0;
+#X text 118 204 delay;
+#X text 217 133 1;
+#X text 216 279 -1;
+#X obj 325 252 loadbang;
+#X msg 325 331 \; delay 0 \; feedback 0;
+#X obj 462 104 inlet~;
+#X obj 500 303 +~;
+#X obj 516 239 sig~;
+#X obj 581 321 *~;
+#X obj 595 284 sig~;
+#X obj 462 154 spigot~;
+#X obj 515 271 vd~ de;
+#X obj 582 170 delwrite~ de 1000;
+#X obj 462 338 outlet~;
+#X obj 501 126 r activate_reverb;
+#X obj 162 377 s revdel;
+#X obj 252 379 s revfb;
+#X obj 516 209 r revdel;
+#X obj 595 245 r revfb;
+#X connect 2 0 3 0;
+#X connect 3 0 24 0;
+#X connect 4 0 13 0;
+#X connect 5 0 6 0;
+#X connect 6 0 25 0;
+#X connect 12 0 13 0;
+#X connect 14 0 19 0;
+#X connect 15 0 17 0;
+#X connect 15 0 22 0;
+#X connect 16 0 20 0;
+#X connect 17 0 21 0;
+#X connect 18 0 17 1;
+#X connect 19 0 22 0;
+#X connect 19 1 15 0;
+#X connect 19 1 21 0;
+#X connect 20 0 15 1;
+#X connect 23 0 19 1;
+#X connect 26 0 16 0;
+#X connect 27 0 18 0;
+#X coords 0 -1 1 1 200 250 1 100 100;

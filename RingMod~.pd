@@ -1,0 +1,56 @@
+#N canvas 671 205 777 563 10;
+#X obj 101 101 cnv 15 200 250 empty empty Ring-modifier 50 12 1 15
+-66577 -257985 0;
+#X obj 122 318 tgl 15 0 \$0activate-ring activate-ring On/Off -10 22
+0 10 -260097 -1 -262144 0 1;
+#X obj 121 134 vsl 30 160 0 50 0 0 empty ringspeed empty 0 -9 0 10
+-257985 -1 -1 0 1;
+#X floatatom 163 206 5 0 0 0 - - -;
+#X obj 266 316 bng 15 250 50 0 empty freq-reset RESET -7 22 0 10 -4032
+-1 -262144;
+#X obj 209 133 vsl 30 160 0 1 0 0 empty ringdepth empty 0 -9 0 10 -257985
+-1 -1 15900 1;
+#X floatatom 251 206 5 0 0 0 - - -;
+#X text 129 279 0;
+#X text 218 134 1;
+#X obj 326 253 loadbang;
+#X text 119 205 Speed;
+#X text 208 205 depth;
+#X text 124 135 50;
+#X text 217 280 0;
+#X obj 599 32 inlet~;
+#X obj 538 383 *~;
+#X obj 600 437 outlet~;
+#X obj 599 99 spigot~;
+#X obj 439 132 osc~;
+#X obj 438 286 clip~ -1 1;
+#X obj 469 341 *~;
+#X obj 439 247 *~;
+#X obj 498 161 loadbang;
+#X obj 638 60 r \$0activate-ring;
+#X msg 482 207 1;
+#X msg 326 332 \; ringspeed 0 \; ringdepth 1;
+#X obj 163 381 s \$0ringspd;
+#X obj 253 380 s \$0ringdepth;
+#X obj 439 105 r \$0ringspd;
+#X obj 484 314 r \$0ringdepth;
+#X connect 2 0 3 0;
+#X connect 3 0 26 0;
+#X connect 4 0 25 0;
+#X connect 5 0 6 0;
+#X connect 6 0 27 0;
+#X connect 9 0 25 0;
+#X connect 14 0 17 0;
+#X connect 15 0 16 0;
+#X connect 17 0 16 0;
+#X connect 17 1 15 1;
+#X connect 18 0 21 0;
+#X connect 19 0 20 0;
+#X connect 20 0 15 0;
+#X connect 21 0 19 0;
+#X connect 22 0 24 0;
+#X connect 23 0 17 1;
+#X connect 24 0 21 1;
+#X connect 28 0 18 0;
+#X connect 29 0 20 1;
+#X coords 0 -1 1 1 200 250 1 100 100;
